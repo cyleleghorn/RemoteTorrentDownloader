@@ -56,8 +56,7 @@ public class TorrentClient {
 	
 
 	public final static double version = 	1.00;
-	private String ipAddress = 				"cylesmovies.noip.me";
-	private int port = 						25252;
+	private String ipAddress = 				"";
 	private JMenuBar menuBar;
 	private JMenu mnOptions;
 	private JMenuItem ipMenuItem;
@@ -66,7 +65,6 @@ public class TorrentClient {
 	private JMenuItem aboutMenuItem;
 	private JMenuItem checkForUpdatesMenuItem;
 	private Preferences prefs;
-	private JMenuItem resetMenuItem;
 
 
 	/**
@@ -178,7 +176,7 @@ public class TorrentClient {
 		
 		mnOptions = new JMenu("Options");
 		menuBar.add(mnOptions);
-		mnOptions.setToolTipText("Configure network settings.  Unless you know what you're doing, DO NOT CHANGE THESE");
+		mnOptions.setToolTipText("Configure network settings.");
 		
 		ipMenuItem = new JMenuItem("Change Server IP Address");
 		mnOptions.add(ipMenuItem);
@@ -186,9 +184,6 @@ public class TorrentClient {
 		portMenuItem = new JMenuItem("Change Server Port");
 		mnOptions.add(portMenuItem);
 		
-		resetMenuItem = new JMenuItem("Reset Network Settings");
-		mnOptions.add(resetMenuItem);
-		resetMenuItem.setToolTipText("Reset the network settings back to Cyle's server.  Use this if you changed a setting and get a connection error now");
 		
 		mnHelp = new JMenu("Help");
 		menuBar.add(mnHelp);
@@ -291,22 +286,6 @@ public class TorrentClient {
 			public void actionPerformed(ActionEvent e)
 			{
 				AutoUpdate.checkForUpdates("MENU");
-			}
-		});
-		
-		resetMenuItem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e)
-			{
-				prefs.put("IP", "cylesmovies.noip.me");
-				ipAddress = "cylesmovies.noip.me";
-				prefs.putInt("PORT", 25252);
-				port = 25252;
-				try {
-					prefs.flush();
-				} catch (BackingStoreException e1) {
-					JOptionPane.showMessageDialog(frmRemoteTorrentDownloader, "There was an error storing the values.  You may need\nto set them again the next time you run the program!", "Options Error", JOptionPane.ERROR_MESSAGE);
-					e1.printStackTrace();
-				}
 			}
 		});
 		
