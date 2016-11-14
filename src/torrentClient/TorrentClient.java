@@ -57,6 +57,7 @@ public class TorrentClient {
 
 	public final static double version = 	1.00;
 	private String ipAddress = 				"";
+	private int port = 						0;
 	private JMenuBar menuBar;
 	private JMenu mnOptions;
 	private JMenuItem ipMenuItem;
