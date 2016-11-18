@@ -55,7 +55,7 @@ public class TorrentClient {
 
 	
 
-	public final static double version = 	1.00;
+	public final static String version = 	"1.1.0";
 	private String ipAddress = 				"";
 	private int port = 						0;
 	private JMenuBar menuBar;
@@ -384,7 +384,7 @@ public class TorrentClient {
 			out.close();
 			socket.close();
 		} catch (IOException e) {
-			JOptionPane.showMessageDialog(frmRemoteTorrentDownloader, "There was an error retreiving the results from the remote server.\nPlease check your internet connection or contact Cyle at 757-903-5747", "Connection Error", JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(frmRemoteTorrentDownloader, "There was an error retreiving the results from the remote server.\nPlease check your internet connection or contact the server administrator.", "Connection Error", JOptionPane.ERROR_MESSAGE);
 			e.printStackTrace();
 		}
 		return results;
