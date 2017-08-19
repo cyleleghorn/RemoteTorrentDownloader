@@ -441,7 +441,7 @@ public class TorrentClient {
 		for(int r=0; r<downloads.size(); r++)
 		{
 			try {
-				Socket socket = new Socket("cylesmovies.noip.me",25252);
+				Socket socket = new Socket(ipAddress,25252);
 				PrintWriter out = new PrintWriter(socket.getOutputStream());
 				//remove commas from title
 				if(checkBoxes.get(downloads.get(r)).getText().contains(",")) checkBoxes.get(downloads.get(r)).setText(checkBoxes.get(downloads.get(r)).getText().replace(",", ""));
